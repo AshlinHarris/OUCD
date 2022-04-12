@@ -299,29 +299,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,x,d)
 
 END SUBROUTINE GENERATE_ADJACENCIES
 
-SUBROUTINE PRINT_NODES(d,n)
-
-! --------------------------------------------------------------------------------------
-! print a set of node indices to standard output
-! --------------------------------------------------------------------------------------
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(IN) :: d(:)
-	INTEGER, INTENT(IN) :: n
-
-	INTEGER :: i
-
-	write(*,'(a)',advance="no") '{'
-
-	DO i=1,n-1
-		write(*,'(i3,", ")',advance="no") d(i)
-	END DO
-
-	write(*,'(i3,a)') d(n),'}'
-
-END SUBROUTINE PRINT_NODES
-
 SUBROUTINE PRINT_TILE( tile, m, n )
 
 ! --------------------------------------------------------------------------------------

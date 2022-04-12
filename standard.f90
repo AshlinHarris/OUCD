@@ -306,5 +306,28 @@ SUBROUTINE LIST_TO_MATRIX(d,size,g,n)
 
 END SUBROUTINE LIST_TO_MATRIX
 
+!---------------------------------------------------------------------------------------
+! print a set of node indices to standard output
+!---------------------------------------------------------------------------------------
+
+SUBROUTINE PRINT_NODES(d,n)
+
+	IMPLICIT NONE
+
+	INTEGER, INTENT(IN) :: d(:)
+	INTEGER, INTENT(IN) :: n
+
+	INTEGER :: i
+
+	write(*,'(a)',advance="no") '{'
+
+	DO i=1,n-1
+		write(*,'(i3,", ")',advance="no") d(i)
+	END DO
+
+	write(*,'(i3,a)') d(n),'}'
+
+END SUBROUTINE PRINT_NODES
+
 END MODULE standard
 
