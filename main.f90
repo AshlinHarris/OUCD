@@ -268,57 +268,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,d)
 
 END SUBROUTINE GENERATE_ADJACENCIES
 
-SUBROUTINE GET_NEXT_SET(d,size,m,n,updated)
-
-! --------------------------------------------------------------------------------------
-! check if a set is the final in the chain
-! --------------------------------------------------------------------------------------
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(INOUT) :: d(:)
-	INTEGER, INTENT(IN) :: size,m,n
-	LOGICAL, INTENT(OUT) :: updated
-
-	INTEGER :: i,j
-	LOGICAL :: diagonal
-
-	updated = .FALSE.
-
-	DO j=1,n-1
-		IF (d(j) .ne. d(j)+n+1) THEN
-			diagonal = .FALSE.
-		END IF
-	END DO
-
-	! do not update if the set is diagonal
-	! any subsequent sets are transposes of previous sets
-	IF (diagonal) GO TO 35
-
-	i=size
-	
-	IF( d(1) .ge. m*n-size+1) GO TO 35
-
-	! go to the next solution in the chain
-	DO while (.not. updated)
-		IF (d(i) .lt. m*n-size+i) THEN
-			d(i) = d(i)+1
-			DO j=i+1,size
-				d(j)=d(i)+j-i
-			END DO
-			updated = .TRUE.
-		ELSE
-			i=i-1
-		END IF
-		IF (i .lt. 1) THEN
-			GO TO 35 ! RETURN without updating
-		END IF
-	END DO
-
-35	RETURN
-
-END SUBROUTINE GET_NEXT_SET
-
 SUBROUTINE INDEX_TO_COORD(i,n,x,y)
 
 ! --------------------------------------------------------------------------------------
