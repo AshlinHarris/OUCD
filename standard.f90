@@ -232,5 +232,33 @@ SUBROUTINE INT_SORT(x, size)
 
 END SUBROUTINE  INT_SORT
 
+!---------------------------------------------------------------------------------------
+! find the index of the minimum value in the integer array x(i:j)
+!---------------------------------------------------------------------------------------
+
+PURE INTEGER FUNCTION MIN_INDEX(x, i, j)
+
+	IMPLICIT  NONE
+
+	INTEGER, INTENT(IN) :: x(:)
+	INTEGER, INTENT(IN) :: i,j
+
+	INTEGER :: k,current,location
+
+	current  = x(i)
+	location = i
+
+	DO k = i+1, j
+		IF (x(k) < current) THEN
+			current  = x(k)
+			location = k
+		END IF
+	END DO
+
+	MIN_INDEX = location
+
+END FUNCTION  MIN_INDEX
+
+
 END MODULE standard
 
