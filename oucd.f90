@@ -213,22 +213,6 @@ SUBROUTINE CHECK_COMPLETENESS(s,m,n,x,completeDominance)
 END SUBROUTINE CHECK_COMPLETENESS
 
 !---------------------------------------------------------------------------------------
-! convert a coordinate to a node index
-!---------------------------------------------------------------------------------------
-
-SUBROUTINE COORD_TO_INDEX(i,n,x,y)
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(OUT) :: i ! index
-	INTEGER, INTENT(IN) :: n ! columns in the array
-	INTEGER, INTENT(IN) :: x,y ! coordinate
-
-	i = (x-1)*n+y
-
-END SUBROUTINE COORD_TO_INDEX
-
-!---------------------------------------------------------------------------------------
 ! Convert time in seconds to an array of hours, minutes, seconds, and milliseconds
 !---------------------------------------------------------------------------------------
 

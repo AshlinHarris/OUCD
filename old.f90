@@ -214,22 +214,6 @@ SUBROUTINE CHECK_COMPLETENESS(s,m,n,x,completeDominance)
 
 END SUBROUTINE CHECK_COMPLETENESS
 
-SUBROUTINE COORD_TO_INDEX(i,n,x,y)
-
-! --------------------------------------------------------------------------------------
-! convert a coordinate to a node index
-! --------------------------------------------------------------------------------------
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(OUT) :: i ! index
-	INTEGER, INTENT(IN) :: n ! columns in the array
-	INTEGER, INTENT(IN) :: x,y ! coordinate
-
-	i = (x-1)*n+y
-
-END SUBROUTINE COORD_TO_INDEX
-
 SUBROUTINE FORMAT_TIME(val,res)
 
 ! --------------------------------------------------------------------------------------
