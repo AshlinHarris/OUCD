@@ -31,12 +31,6 @@ PROGRAM MAIN
 	INTEGER :: time(4)
 	INTEGER :: count_first, count_last, count_start, count_finish, count_rate, count_max
 
-        
-
-
-
-
-
 	write(*,*)
 
 	CALL SYSTEM_CLOCK(count_first, count_rate, count_max)
