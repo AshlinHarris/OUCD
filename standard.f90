@@ -213,7 +213,7 @@ LOGICAL FUNCTION INT_COMPARE(a,b,n) result(matching)
 END FUNCTION INT_COMPARE
 
 !---------------------------------------------------------------------------------------
-! INT_SORT an INTEGER array in nondecreasing order
+! Sort an INTEGER array in nondecreasing order
 !---------------------------------------------------------------------------------------
 
 SUBROUTINE INT_SORT(x, size)
@@ -233,7 +233,7 @@ SUBROUTINE INT_SORT(x, size)
 END SUBROUTINE  INT_SORT
 
 !---------------------------------------------------------------------------------------
-! INT_SWAP two integers
+! Swap two integers
 !---------------------------------------------------------------------------------------
 
 SUBROUTINE INT_SWAP(a, b)
