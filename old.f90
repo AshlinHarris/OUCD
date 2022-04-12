@@ -21,7 +21,7 @@ PROGRAM MAIN
 	INTEGER, parameter :: MIN_SIZE = 3  ! minimum number of rows or columns
 	INTEGER, parameter :: MAX_SIZE = 7 ! maximum number of rows or columns
 	INTEGER :: MIN_D ! fewest dominating nodes to put on a tile
-        LOGICAL, allocatable :: matrix(:,:)
+		LOGICAL, allocatable :: matrix(:,:)
 	INTEGER :: i,j,k
 	LOGICAL :: solved
 	INTEGER :: ALLOCATED, DEALLOCATED
@@ -117,7 +117,7 @@ LOGICAL FUNCTION CHECK_UNIQUENESS(a,m,n,x,k) result(unique)
 	! These are the only nodes stored in the adjacency lists.
 	! So, the size of the adjacency matrix is (k,m+2*x-2,n+2*x-2)
 	
-	MAX_ROW    = m+2*x-2
+	MAX_ROW	= m+2*x-2
 	MAX_COLUMN = n+2*x-2
 
 	! for each node ...
@@ -135,7 +135,7 @@ LOGICAL FUNCTION CHECK_UNIQUENESS(a,m,n,x,k) result(unique)
 			END IF
 		END DO
 
-       		! second, all others
+	   		! second, all others
 		DO i2=j+1,MAX_COLUMN
 		DO i1=1,MAX_ROW
 
@@ -176,7 +176,7 @@ SUBROUTINE CHECK_COMPLETENESS(s,m,n,x,completeDominance)
 
 	INTEGER :: MAX_ROW, MAX_COLUMN
 
-	MAX_ROW    = m+2*x-1
+	MAX_ROW	= m+2*x-1
 	MAX_COLUMN = n+2*x-1
 
 	! loop through each interior point
@@ -213,62 +213,6 @@ SUBROUTINE CHECK_COMPLETENESS(s,m,n,x,completeDominance)
 370	RETURN
 
 END SUBROUTINE CHECK_COMPLETENESS
-
-SUBROUTINE GENERATE_TILING(a,m,n,x,b)
-
-! --------------------------------------------------------------------
-! given a tile, return a section of the infinite tiling
-! --------------------------------------------------------------------
-
-	! To check all the adjacencies of a tile for unique complete
-	! dominance, points outside the tile must be checked.
-
-	! This function creates an m+2x by n+2x array and puts an
-	! m by n tile in the center.
-
-	! The remaining sides and corners of the larger array are
-	! filled with slices of the tile so that a small area of the
-	! tiling is simulated.
-
-	! I think setting x=2 is sufficient to reliably simulate the
-	! behavior of the infinite tiling. This gives a layer of nodes
-	! to dominate the interior nodes an an additional layer of
-	! interior nodes to check for matches
-
-	! Without a border, the exterior nodes will not be assigned
-	! the correct adjacency list.
-
-	! At x=1, spurious solutions may be produced such as:
-	! /----------\
-	! |**********|
-	! |          |
-	! |          |
-	! \----------/
-
-	IMPLICIT NONE
-
-	LOGICAL, INTENT(IN) :: a(:,:)
-
-	INTEGER, INTENT(IN) :: m ! rows in the tile
-	INTEGER, INTENT(IN) :: n ! columns in the tile
-	INTEGER, INTENT(IN) :: x ! width of border;
-	                         ! should not exceed m or n
-
-        LOGICAL, INTENT(OUT) :: b(:,:) ! tiling
-
-	b(    1:x    ,     1:x    ) = a(m-x+1:m, n-x+1:n)
-	b(    1:x    ,   x+1:n+x  ) = a(m-x+1:m,      : )
-	b(    1:x    , n+x+1:2*x+n) = a(m-x+1:m,     1:x)
-
-	b(  x+1:x+m  ,     1:x    ) = a(     : , n-x+1:n)
-	b(  x+1:x+m  ,   x+1:n+x  ) = a(     : ,      : )
-	b(  x+1:x+m  , n+x+1:2*x+n) = a(     : ,     1:x)
-
-	b(x+m+1:2*x+m,     1:x    ) = a(    1:x, n-x+1:n)
-	b(x+m+1:2*x+m,   x+1:n+x  ) = a(    1:x,      : )
-	b(x+m+1:2*x+m, n+x+1:2*x+n) = a(    1:x,     1:x)
-
-END SUBROUTINE GENERATE_TILING
 
 SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,x,d)
 
@@ -364,7 +308,7 @@ SUBROUTINE GET_FIRST_SET(d,n)
 	IMPLICIT NONE
 	
 	INTEGER, INTENT(INOUT) :: d(:)
-	INTEGER, INTENT(IN)    :: n
+	INTEGER, INTENT(IN)	:: n
 
 	INTEGER :: i
 
@@ -473,7 +417,7 @@ SUBROUTINE INT_SORT(x, size)
 	IMPLICIT NONE
 
 	INTEGER, INTENT(INOUT) :: x(:)
-	INTEGER, INTENT(IN)    :: size
+	INTEGER, INTENT(IN)	:: size
 
 	INTEGER :: i,j
 
@@ -512,7 +456,7 @@ SUBROUTINE LIST_TO_MATRIX(d,size,g,n)
 
 	INTEGER :: d(:) ! array of dominating nodes
 	INTEGER, INTENT(IN) :: size  ! elements of array d
-	INTEGER, INTENT(IN) :: n     ! columns in tile
+	INTEGER, INTENT(IN) :: n	 ! columns in tile
 	LOGICAL :: g(:,:) ! boolean matrix of nodes
 
 	INTEGER :: i,j,k
@@ -641,16 +585,16 @@ SUBROUTINE SEARCH_FOR_SOLUTION(d_nodes,m,n,n_d,solved)
 	INTEGER, INTENT(IN) :: n_d
 
 	INTEGER, allocatable, INTENT(OUT) :: d_nodes(:)
-	LOGICAL, INTENT(OUT)              :: solved
+	LOGICAL, INTENT(OUT)			  :: solved
 
-	LOGICAL, allocatable :: g(:,:)     ! tile
+	LOGICAL, allocatable :: g(:,:)	 ! tile
 	LOGICAL, allocatable :: aug(:,:)   ! augmented tile
 	INTEGER, allocatable :: adj(:,:,:) ! adjacencies
 
 	INTEGER, parameter :: k = 8 ! connectivity of graph
 	INTEGER, parameter :: x = 2 ! border width
 
-	INTEGER :: ALLOCATED     ! status of allocation
+	INTEGER :: ALLOCATED	 ! status of allocation
 	INTEGER :: DEALLOCATED   ! status of deallocation
 	LOGICAL :: continue_flag ! can a solution still be found?
 	LOGICAL :: isDominated   ! does a set exhibit complete dominance?
