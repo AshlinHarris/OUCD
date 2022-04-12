@@ -1,5 +1,5 @@
 .PHONY: all
-all: main.out old.out oucd.out
+all: main.out oucd.out
 
 #source=main
 #object=a.out
