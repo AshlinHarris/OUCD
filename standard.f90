@@ -343,8 +343,10 @@ SUBROUTINE PRINT_TILE( tile, m, n )
 
 	! print a line on top
 	write (*,"(a)",advance="no") '/'
+	write (*,"(a)",advance="no") ' '
 	DO i=1,m
 			write (*,"(a)",advance="no") '-'
+			write (*,"(a)",advance="no") ' '
 	END DO
 	write (*,"(a)") '\'
 		
@@ -352,15 +354,15 @@ SUBROUTINE PRINT_TILE( tile, m, n )
 	DO j=1,n
 
 		write (*,"(a)",advance="no") '|'
+		write (*,"(a)",advance="no") ' '
 
 		DO i=1,m
-
 			IF(tile(i,j)) THEN
 				write (*,"(a)",advance="no") '@'
 			ELSE
 				write (*,"(a)",advance="no") ' '
 			END IF
-				
+			write (*,"(a)",advance="no") ' '
 		END DO
 		write (*,"(a)") '|'
 
@@ -368,8 +370,10 @@ SUBROUTINE PRINT_TILE( tile, m, n )
 
 	! print a line at the base
 	write (*,"(a)",advance="no") '\'
+	write (*,"(a)",advance="no") ' '
 	DO i=1,m
 			write (*,"(a)",advance="no") '-'
+			write (*,"(a)",advance="no") ' '
 	END DO
 	write (*,"(a)") '/'
 
