@@ -268,23 +268,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,d)
 
 END SUBROUTINE GENERATE_ADJACENCIES
 
-SUBROUTINE INDEX_TO_COORD(i,n,x,y)
-
-! --------------------------------------------------------------------------------------
-! convert a node index to a coordinate
-! --------------------------------------------------------------------------------------
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(IN) :: i ! index
-	INTEGER, INTENT(IN) :: n ! columns in the array
-	INTEGER, INTENT(OUT) :: x,y ! coordinate
-
-	y = mod(i+n-1,n) + 1
-	x = (i-y)/n + 1
-
-END SUBROUTINE INDEX_TO_COORD
-
 LOGICAL FUNCTION INT_COMPARE(a,b,n) result(matching)
 
 ! --------------------------------------------------------------------------------------

@@ -173,5 +173,23 @@ SUBROUTINE GET_NEXT_SET(d,size,m,n,updated)
 
 END SUBROUTINE GET_NEXT_SET
 
+!---------------------------------------------------------------------------------------
+! convert a node index to a coordinate
+!---------------------------------------------------------------------------------------
+
+SUBROUTINE INDEX_TO_COORD(i,n,x,y)
+
+	IMPLICIT NONE
+
+	INTEGER, INTENT(IN) :: i ! index
+	INTEGER, INTENT(IN) :: n ! columns in the array
+	INTEGER, INTENT(OUT) :: x,y ! coordinate
+
+	y = mod(i+n-1,n) + 1
+	x = (i-y)/n + 1
+
+END SUBROUTINE INDEX_TO_COORD
+
+
 END MODULE standard
 

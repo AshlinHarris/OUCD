@@ -298,23 +298,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,x,d)
 END SUBROUTINE GENERATE_ADJACENCIES
 
 !---------------------------------------------------------------------------------------
-! convert a node index to a coordinate
-!---------------------------------------------------------------------------------------
-
-SUBROUTINE INDEX_TO_COORD(i,n,x,y)
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(IN) :: i ! index
-	INTEGER, INTENT(IN) :: n ! columns in the array
-	INTEGER, INTENT(OUT) :: x,y ! coordinate
-
-	y = mod(i+n-1,n) + 1
-	x = (i-y)/n + 1
-
-END SUBROUTINE INDEX_TO_COORD
-
-!---------------------------------------------------------------------------------------
 ! determine IF 2 integer arrays of size n are identical
 !---------------------------------------------------------------------------------------
 
