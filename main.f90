@@ -1,12 +1,3 @@
-include 'include.f90'
-
-! ======================================================================================
-! standard module for double precision
-! ======================================================================================
-
-MODULE standard
-	INTEGER, parameter:: dp=kind(0.d0)
-END MODULE standard
 
 ! ======================================================================================
 ! main program
@@ -14,7 +5,7 @@ END MODULE standard
 
 PROGRAM MAIN
 
-	USE standard
+	USE :: standard
 
 	IMPLICIT NONE
 

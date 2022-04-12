@@ -10,7 +10,7 @@ all: main.out old.out oucd.out
 	#gfortran ${source} -o ${object} -Ofast #PRODUCTION
 
 %.out: %.f90
-	gfortran $< -o $@ -Ofast #PRODUCTION
+	gfortran standard.f90 $< -o $@ -Ofast #PRODUCTION
 	#gfortran -g $< -o $@ -Wall -Wno-tabs -Wextra -Wconversion -fbacktrace -fbounds-check -ffpe-trap=zero,overflow,underflow -fcheck=all -fmax-errors=1
 
 .PHONY: clean
