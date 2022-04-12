@@ -268,25 +268,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,d)
 
 END SUBROUTINE GENERATE_ADJACENCIES
 
-SUBROUTINE GET_FIRST_SET(d,n)
-
-! --------------------------------------------------------------------------------------
-! create the initial set in the chain of dominating node sets
-! --------------------------------------------------------------------------------------
-
-	IMPLICIT NONE
-	
-	INTEGER, INTENT(INOUT) :: d(:)
-	INTEGER, INTENT(IN)	:: n
-
-	INTEGER :: i
-
-	DO i=1,n
-		d(i) = i
-	END DO
-
-END SUBROUTINE GET_FIRST_SET
-
 SUBROUTINE GET_NEXT_SET(d,size,m,n,updated)
 
 ! --------------------------------------------------------------------------------------

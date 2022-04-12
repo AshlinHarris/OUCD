@@ -103,6 +103,24 @@ SUBROUTINE GENERATE_TILING(a,m,n,x,b)
 
 END SUBROUTINE GENERATE_TILING
 
+!---------------------------------------------------------------------------------------
+! create the initial set in the chain of dominating node sets
+!---------------------------------------------------------------------------------------
+
+SUBROUTINE GET_FIRST_SET(d,n)
+
+	IMPLICIT NONE
+	
+	INTEGER, INTENT(INOUT) :: d(:)
+	INTEGER, INTENT(IN)	:: n
+
+	INTEGER :: i
+
+	DO i=1,n
+		d(i) = i
+	END DO
+
+END SUBROUTINE GET_FIRST_SET
 
 END MODULE standard
 
