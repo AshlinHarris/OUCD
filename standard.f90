@@ -329,5 +329,51 @@ SUBROUTINE PRINT_NODES(d,n)
 
 END SUBROUTINE PRINT_NODES
 
+!---------------------------------------------------------------------------------------
+! print a tile as a character grid
+!---------------------------------------------------------------------------------------
+
+SUBROUTINE PRINT_TILE( tile, m, n )
+
+	IMPLICIT NONE
+
+	INTEGER, INTENT(IN) :: m,n
+	LOGICAL :: tile(:,:)
+	INTEGER :: i,j
+
+	! print a line on top
+	write (*,"(a)",advance="no") '/'
+	DO i=1,m
+			write (*,"(a)",advance="no") '-'
+	END DO
+	write (*,"(a)") '\'
+		
+	! print the tile with lines on the left and right
+	DO j=1,n
+
+		write (*,"(a)",advance="no") '|'
+
+		DO i=1,m
+
+			IF(tile(i,j)) THEN
+				write (*,"(a)",advance="no") '@'
+			ELSE
+				write (*,"(a)",advance="no") ' '
+			END IF
+				
+		END DO
+		write (*,"(a)") '|'
+
+	END DO
+
+	! print a line at the base
+	write (*,"(a)",advance="no") '\'
+	DO i=1,m
+			write (*,"(a)",advance="no") '-'
+	END DO
+	write (*,"(a)") '/'
+
+END SUBROUTINE PRINT_TILE
+
 END MODULE standard
 
