@@ -233,6 +233,24 @@ SUBROUTINE INT_SORT(x, size)
 END SUBROUTINE  INT_SORT
 
 !---------------------------------------------------------------------------------------
+! INT_SWAP two integers
+!---------------------------------------------------------------------------------------
+
+SUBROUTINE INT_SWAP(a, b)
+
+	IMPLICIT NONE
+
+	INTEGER, INTENT(INOUT) :: a, b
+
+	INTEGER :: x
+
+	x = a
+	a = b
+	b = x
+
+END SUBROUTINE INT_SWAP
+
+!---------------------------------------------------------------------------------------
 ! find the index of the minimum value in the integer array x(i:j)
 !---------------------------------------------------------------------------------------
 

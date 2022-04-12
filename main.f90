@@ -268,24 +268,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,d)
 
 END SUBROUTINE GENERATE_ADJACENCIES
 
-SUBROUTINE INT_SWAP(a, b)
-
-! --------------------------------------------------------------------------------------
-! swap two integers
-! --------------------------------------------------------------------------------------
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(INOUT) :: a, b
-
-	INTEGER :: x
-
-	x = a
-	a = b
-	b = x
-
-END SUBROUTINE INT_SWAP
-
 SUBROUTINE LIST_TO_MATRIX(d,size,g,n)
 
 ! --------------------------------------------------------------------------------------

@@ -298,24 +298,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,x,d)
 END SUBROUTINE GENERATE_ADJACENCIES
 
 !---------------------------------------------------------------------------------------
-! INT_SWAP two integers
-!---------------------------------------------------------------------------------------
-
-SUBROUTINE INT_SWAP(a, b)
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(INOUT) :: a, b
-
-	INTEGER :: x
-
-	x = a
-	a = b
-	b = x
-
-END SUBROUTINE INT_SWAP
-
-!---------------------------------------------------------------------------------------
 ! convert a list of nodes to a boolean matrix
 !---------------------------------------------------------------------------------------
 
