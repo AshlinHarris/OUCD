@@ -191,7 +191,7 @@ SUBROUTINE INDEX_TO_COORD(i,n,x,y)
 END SUBROUTINE INDEX_TO_COORD
 
 !---------------------------------------------------------------------------------------
-! determine IF 2 integer arrays of size n are identical
+! determine if 2 integer arrays of size n are identical
 !---------------------------------------------------------------------------------------
 
 LOGICAL FUNCTION INT_COMPARE(a,b,n) result(matching)
