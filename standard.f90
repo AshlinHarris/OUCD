@@ -212,5 +212,25 @@ LOGICAL FUNCTION INT_COMPARE(a,b,n) result(matching)
 
 END FUNCTION INT_COMPARE
 
+!---------------------------------------------------------------------------------------
+! INT_SORT an INTEGER array in nondecreasing order
+!---------------------------------------------------------------------------------------
+
+SUBROUTINE INT_SORT(x, size)
+
+	IMPLICIT NONE
+
+	INTEGER, INTENT(INOUT) :: x(:)
+	INTEGER, INTENT(IN)	:: size
+
+	INTEGER :: i,j
+
+	DO i = 1, size-1
+		j = MIN_INDEX(x, i, size)
+		call INT_SWAP(x(i), x(j))
+	END DO
+
+END SUBROUTINE  INT_SORT
+
 END MODULE standard
 
