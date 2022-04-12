@@ -277,6 +277,34 @@ PURE INTEGER FUNCTION MIN_INDEX(x, i, j)
 
 END FUNCTION  MIN_INDEX
 
+!---------------------------------------------------------------------------------------
+! convert a list of nodes to a boolean matrix
+!---------------------------------------------------------------------------------------
+
+SUBROUTINE LIST_TO_MATRIX(d,size,g,n)
+
+	IMPLICIT NONE
+
+	INTEGER :: d(:) ! array of dominating nodes
+	INTEGER, INTENT(IN) :: size  ! elements of array d
+	INTEGER, INTENT(IN) :: n	 ! columns in tile
+	LOGICAL :: g(:,:) ! boolean matrix of nodes
+
+	INTEGER :: i,j,k
+	INTEGER :: index
+
+	g = .FALSE.
+
+	! mark each node as TRUE
+	DO k=1,size
+		index = d(k)
+		IF (index .ge. 1) THEN
+			call INDEX_TO_COORD(index,n,i,j)
+			g(i,j) = .TRUE.
+		END IF
+	END DO
+
+END SUBROUTINE LIST_TO_MATRIX
 
 END MODULE standard
 
