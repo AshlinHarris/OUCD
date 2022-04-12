@@ -1,8 +1,4 @@
 
-!=======================================================================================
-PROGRAM MAIN
-!=======================================================================================
-
 !---------------------------------------------------------------------------------------
 ! calls the SEARCH_FOR_SOLUTION SUBROUTINE, which RETURNs the optimal solution, for each size
 ! of tile i x j such that MIN_SIZE <= j <= i <= MAX_SIZE and for any number of
@@ -10,6 +6,8 @@ PROGRAM MAIN
 ! and up. A solution is guaranteed with i*j/2 dominating nodes, so no upper
 ! bound is implemented. 
 !---------------------------------------------------------------------------------------
+
+PROGRAM MAIN
 
 	USE :: standard
 
