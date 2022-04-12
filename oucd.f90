@@ -298,28 +298,6 @@ SUBROUTINE GENERATE_ADJACENCIES(m,n,k,a,x,d)
 END SUBROUTINE GENERATE_ADJACENCIES
 
 !---------------------------------------------------------------------------------------
-! determine IF 2 integer arrays of size n are identical
-!---------------------------------------------------------------------------------------
-
-LOGICAL FUNCTION INT_COMPARE(a,b,n) result(matching)
-
-	IMPLICIT NONE
-
-	INTEGER, INTENT(IN) :: a(:),b(:)
-	INTEGER, INTENT(IN) :: n
-	INTEGER :: i
-
-	matching = .TRUE.
-	DO i=1,n
-		IF (a(i) .ne. b(i)) THEN
-			matching = .FALSE.
-			GO TO 37
-		END IF
-37	END DO
-
-END FUNCTION INT_COMPARE
-
-!---------------------------------------------------------------------------------------
 ! INT_SORT an INTEGER array in nondecreasing order
 !---------------------------------------------------------------------------------------
 
