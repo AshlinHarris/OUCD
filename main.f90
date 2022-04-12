@@ -31,7 +31,6 @@ PROGRAM MAIN
 
 		!WRITE(*,*) a
 
-
 		WRITE(FMT,*) m*n
 		OPEN(UNIT=100,FILE='file')
 
@@ -42,7 +41,6 @@ PROGRAM MAIN
 		END DO
 
 		CLOSE(100)
-
 
 		OPEN(UNIT=101,FILE='file',ACTION='read')
 		DO h =2**(m*n-1),2**(m*n)-1
