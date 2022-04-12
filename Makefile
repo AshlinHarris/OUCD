@@ -6,8 +6,8 @@ all: main.out old.out oucd.out
 
 #${object}: ${source}.f90
 #	gfortran -g ${source} -o ${object} -Wall -Wtabs -Wextra -Wconversion -fbacktrace -fbounds-check -ffpe-trap=zero,overflow,underflow -fcheck=all -fmax-errors=7
-	#gfortran -g ${source}.f90 -o ${object} -Wall -Wno-tabs -Wextra -Wconversion -fbacktrace -fbounds-check -ffpe-trap=zero,overflow,underflow -fcheck=all -fmax-errors=1 #
-	#gfortran ${source} -o ${object} -Ofast #PRODUCTION
+#	gfortran -g ${source}.f90 -o ${object} -Wall -Wno-tabs -Wextra -Wconversion -fbacktrace -fbounds-check -ffpe-trap=zero,overflow,underflow -fcheck=all -fmax-errors=1 #
+#	gfortran ${source} -o ${object} -Ofast #PRODUCTION
 
 %.out: %.f90
 	gfortran standard.f90 $< -o $@ -Ofast #PRODUCTION
