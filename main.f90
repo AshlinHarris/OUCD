@@ -52,6 +52,7 @@ DO h =2**(m*n-1),2**(m*n)-1
 				! What cut-off values should be used?
 				WRITE(*,*) a, ", ", 1.0*COUNT(a)/m/n, ", ", 1.0*COUNT(adj/=0)/COUNT(a)
 				CALL PRINT_TILE(a,m,n)
+				write (*,*)
 			END IF
 		END IF
 	END IF

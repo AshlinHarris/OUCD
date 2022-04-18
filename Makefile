@@ -17,7 +17,7 @@ all: main.out oucd.out
 clean:
 	rm -f *.mod
 
-.PHONY: wipe
-wipe: clean
+.PHONY: erase
+erase: clean
 	rm -f *.out
 
