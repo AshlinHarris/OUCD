@@ -23,16 +23,6 @@ m=4
 n=4
 ALLOCATE(a(m,n))
 
-a=.FALSE.
-
-!DO j=1,3
-!	DO i=1,3
-!		WRITE(*,'(L)',advance='no') a(i,j)
-!	END DO
-!END DO
-
-!WRITE(*,*) a
-
 WRITE(FMT,*) m*n
 OPEN(UNIT=100,FILE='file')
 
