@@ -14,7 +14,7 @@ INTEGER, ALLOCATABLE :: adj(:,:,:)
 INTEGER :: i,j,x,h,m,n, ALLOCATED,k
 LOGICAL :: is_complete
 
-INTEGER :: ZERO = 0 ! Passed as argument to updated subroutines
+INTEGER :: ZERO = 0 ! Dummy  argument for generalized subroutines
 
 CHARACTER(LEN=20) FMT
 
@@ -49,7 +49,7 @@ DO h =2**(m*n-1),2**(m*n)-1
 		CALL GENERATE_ADJACENCIES(m,n,k,adj,ZERO,a)
 		IF(CHECK_UNIQUENESS(adj,m,n,ZERO,k)) THEN
 			IF(1.0*COUNT(a)/m/n < 0.25) THEN
-				! what cutoffvalues should be used?
+				! What cut-off values should be used?
 				WRITE(*,*) a, ", ", 1.0*COUNT(a)/m/n, ", ", 1.0*COUNT(adj/=0)/COUNT(a)
 				CALL PRINT_TILE(a,m,n)
 			END IF
