@@ -10,5 +10,20 @@ We say the board is "completely" dominated if each square is next to at least on
 We say the board is "uniquely" dominated if no two squares have the same labels.
 What fraction of squares must contain a piece in order for the entire board to be completely and uniquely dominated?
 
+Solutions exist that cover 1/4 of all squares.
+The simplest is the following 4 x 4 tile:
+```
+┼───┼───┼───┼───┼
+│ @ │   │   │   │
+┼───┼───┼───┼───┼
+│   │ @ │   │   │
+┼───┼───┼───┼───┼
+│   │   │   │ @ │
+┼───┼───┼───┼───┼
+│   │   │ @ │   │
+┼───┼───┼───┼───┼
+```
+To my knowledge, no one has proved that this is a lower bound.
+
 This program generates finite rectangular boards to be tiled as a grid.
 For any given size, it finds an optimal tile (that is, it uses the fewest number of pieces).
